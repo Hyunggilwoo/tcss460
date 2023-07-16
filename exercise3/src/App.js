@@ -19,23 +19,6 @@ function App(props) {
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
 
-  // const hook = () => {
-  //   console.log('effect')
-  //   axios
-  //     .get('https://studies.cs.helsinki.fi/restcountries/api/name/finland')
-  //     .then(response => {
-  //       console.log('promise fulfilled');
-  //       const commonName = response.data.name.common
-  //       setCountry(commonName)
-  //       console.log(commonName)
-  //     })
-  //     .catch(error => {
-  //       console.error('Error fetching country data', error);
-  //     });
-  // }
-
-  // useEffect(hook, [])
-
   /**
    * This function filters the list of countries based on user input and displays the filtered list and a map.
    *
@@ -70,17 +53,30 @@ function App(props) {
     setShowCountry(event.target.value)
 
     // Filter stuff
-    const regex = new RegExp(showCountry, 'i');
+    const regex = new RegExp(event.target.value, 'i');
     const filtered = country.filter(name => regex.test(name));
     setFilteredCountries(filtered)
   }
 
-  const searchCountry = (event) => {
-    event.preventDefault();
-    const regex = new RegExp(showCountry, 'i');
-    const filtered = country.filter(name => regex.test(name));
-    setFilteredCountries(filtered)
-  }
+  // const searchCountry = (event) => {
+  //   event.preventDefault();
+  //   const regex = new RegExp(showCountry, 'i');
+  //   const filtered = country.filter(name => regex.test(name));
+  //   setFilteredCountries(filtered)
+  // }
+
+  // show filtered countries
+
+  const showAll = filteredCountries.length > 10
+  ? <div>
+      <p> Too many matches, please be more specific </p> 
+    </div>
+    
+  : filteredCountries.map((country, index )=>
+      <li key={index}>
+        {country}
+      </li>
+  )
 
   // Google Map functions
   const showMap = isLoaded
@@ -93,18 +89,7 @@ function App(props) {
       <h1> Your Country Lookup tool</h1>
 
       <div>
-        {filteredCountries.length > 10
-          ? <div>
-              <p> Too many matches, please be more specific </p> 
-              console.log('Too many matches')
-            </div>
-            
-          : filteredCountries.map((country, index )=>
-          <li key={index}>
-            {country.common}
-          </li>
-        )}
-        {/* {filteredCountries} */}
+        {showAll}
       </div>
 
       <div>
