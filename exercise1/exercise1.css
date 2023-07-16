@@ -1,0 +1,141 @@
+﻿
+/* The HTML and stylesheet were based on https://openclassrooms.com/courses/build-your-website-with-html5-and-css3/practical-exercise-step-by-step-creation-of-a-website
+/* for sample HTML CSS tempaltes, go to https://html5up.net
+
+
+/* ********************************************************* */
+/* TCSS460 - Activity 1                                      */
+/* Complete the sections titled "To be completed"            */
+/* based on the activiy handout                              */
+/* ********************************************************* */
+
+
+body
+{
+   margin-top: 20px;
+   margin-bottom: 20px;
+   margin-left: 30px;
+   margin-right: 15px;
+   background-color: white;
+   width: 800px;
+   color: #330033;
+   font: Verdana, sans-serif;
+}
+
+/* Header */
+#header_title {
+    font: 40px bold serif;
+}
+
+.second-header div h2{
+    font: 24px sans serif;
+    text-decoration: underline;
+}
+
+/*--------------- Displaying Question and Sprite------------------ */
+.second-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.first-question {
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+}
+
+.list-and-sprite {
+    display: flex;
+    justify-content: space-between;
+    background-color: #CCFFCC;
+}
+/* ---- Change color of CSS sprite ----*/
+.css-sprite-bts {
+    /* background:url('images/css-sprite-combined.png') 0px -0px; */
+    background:url('bts.jpeg') 0px -0px;
+    width:200px;
+    height: 200px;
+    margin-left: auto;
+    filter: grayscale(100%);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.css-sprite-bts:hover {
+    filter: none;
+}
+
+
+/* ----------- Second Question and Unordered Lists ----------*/
+ul {
+    /* background-color: #CCFFCC; */
+    line-height: 150%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.second-question {
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+}
+
+.ordered-list-and-sprite {
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFCC99;
+}
+
+/* Ordered Lists */
+ol {
+    line-height: 150%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    list-style: upper-alpha;
+}
+
+.css-sprite {
+    background: url("le_sseraffim.jpeg") 0px -0px;
+    width:200px;
+    height: 200px;
+    margin-left: auto;
+    filter: grayscale(100%);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.css-sprite:hover {
+    filter: none;
+}
+
+p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: justify;
+    font-size: 18px;
+}
+
+
+
+a:hover {
+    color: inherit;
+    text-decoration: none;
+    color: red;
+    font-size: bold;
+}
+
+.content {
+    color: green;
+    font-style: italic;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#main
+{
+    width: 900px;
+    margin: auto;
+}
+

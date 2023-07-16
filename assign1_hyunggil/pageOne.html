@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sharp Point Coffee</title>
+  <title>PageOne</title>
   <!-- This stylesheet will somewhat "normalize" the styling across browsers -->
   
   <!-- importing fonts-->
@@ -10,67 +10,175 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <nav>
-    <ul>
-      <li><a href="#"><span class="material-icons" aria-label="Home">local_cafe</span></a></li>
-      <li><a href="#menu">Menu</a></li>
-      <li><a href="#about">About Us</a></li>
-    </ul>
-  </nav>
-  <header>
-    <div class="container">
-      <h1>Sharp Point Coffee</h1>
-      <p class="motto">Caffeinating sleepy Huskies since 2018</p>
-    </div>
-  </header>  
+
+  <div class="nav_container">
+    <nav class="topNav">
+      <ul>
+        <li><a href="pageTwo.html">My Account</span></a></li>
+        <li><a href="#wishlist">Wish List</a></li>
+        <li><a href="#shoppingcart">Shopping Cart</a></li>
+        <li><a href="#checkout">Checkout</a></li>
+      </ul>
+    </nav>
+
+    <header class="homeView">
+      <h1>Art Store</h1>
+
+      <nav class="secondNav">
+        <ul>
+          <li><a href="#home">Home</span></a></li>
+          <li><a href="#aboutus">About Us</a></li>
+          <li><a href="#artWorks">Art Works</a></li>
+          <li><a href="#artists">Artists</a></li>
+        </ul>
+      </nav>
+
+    </header>  
+  </div>
+
   
-  <main>
-    <section id="menu"> 
-      <div class="container">
-        <h2>Menu</h2>
-        <dl>
-          <dt>Espresso</dt>
-          <dd>
-            <img src="img/espresso-emre-NZMeJsrMC8U-unsplash.jpg" alt="espresso">
-            <p>Dark and bold</p>
-          </dd>
+  <main class="container">
+    <section id="menu">
 
-          <dt>Latte</dt>
-          <dd>
-            <img src="img/latte-jonas-jacobsson-RFHFV7lVQBY-unsplash.jpg" alt="latte">
-            <p>Steamed milk with espresso</p>
-          </dd>
+      <!-- Title of the artwork-->
+      <h2 class="title"> 
+        <a class="titleLink" href="https://en.wikipedia.org/wiki/Self-portrait_in_a_Straw_Hat" target="_blank">
+          Self-portrait in a Straw Hat</a></h2>
+        
+      <p>By <a class="hyperlink"href="https://en.wikipedia.org/wiki/%C3%89lisabeth_Vig%C3%A9e_Le_Brun" target="_blank">Louise Elisabeth Lebrun</a></p>
 
-          <dt>Mocha</dt>
-          <dd>
-            <img src="img/mocha-janaya-dasiuk-teW0I5i2HfU-unsplash.jpg" alt="mocha">
-            <p>Steamed milk with espresso and chocolate</p>
-          </dd>
+      <!-- Show the main product--> 
+      <div class="picture-view">
 
-          <dt>Cappuccino</dt>
-          <dd>
-            <img src="img/cappuccino-jason-wong-kSlL887znkE-unsplash.jpg" alt="cappuccino">
-            <p>Foamed milk with espresso, topped with cinnamon shavings</p>
-          </dd>
-        </dl>
+        <div >
+          <a href="images/113010.jpg" target="_blank"><img src="images/113010-m.jpg"></a>
+        </div>
+
+        <div class="main-additional-info">
+          <div class="description">
+            The painting appears, after cleaning, to be an autograph replica of a picture, the original which was painted in Brussels in 1782 in ftree imitation of Ruben's
+            'Chapeau de Paille', which LeBrun had seen in Antwerp. It was exhibited in Paris in 1782 at the Salon de la Correspondance.
+            LeBrun's original is recorded in a private collection in France.
+          </div>
+          <p><a class="price">$700</a></p>
+  
+          <div class="ordering-buttons">
+            <button id="wish-list"><a href="#">Add to Wish List</a></button>
+            <button id="shopping-cart"><a href="#">Add to Shopping Cart</a></button>
+          </div>
+  
+          <div class="product-details">
+            <h3>Product Details</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <th>Date:</th>
+                  <td>1782</td> <!-- Date -->
+                </tr>
+  
+                <tr>
+                  <th>Medium:</th>
+                  <td>Oil on Canvas</td> <!--Medium -->
+                </tr>
+  
+                <tr>
+                  <th>Dimensions:</th>
+                  <td>98cm X 71cm</td>
+                </tr>
+  
+                <tr>
+                  <th>Home:</th>
+                  <td><a class="hyperlink" href="https://en.wikipedia.org/wiki/National_Gallery" target="_blank">National Gallery, London</a></td>
+                </tr>
+                <tr>
+                  <th>Genres:</th>
+                  <td><a class="hyperlink" href="https://en.wikipedia.org/wiki/Realism_(arts)" target="_blank">Realism</a>, <a class="hyperlink" href="https://en.wikipedia.org/wiki/Rococo" target="_blank">Rococo</a></td>
+                </tr>
+                <tr>
+                  <th>Subjects:</th>
+                  <td><a class="hyperlink" href="">People</a>, <a class="hyperlink" href="">Arts</a></td>
+                </tr>
+  
+              </tbody>
+            </table>
+        </div>
+
+        </div>
+      </div>
+
+
+      <!-- Show Similar Products-->
+      <div class="product_container">
+        <h3>Similar Products</h3>
+        <div class="product-list">
+
+          <!-- First picture-->
+          <div class="picture">
+            <dd>
+              <img src="images/thumbs/116010.jpg" alt="Artist Holding a Thistle">
+              <p><a class="hyperlink" href="https://en.wikipedia.org/wiki/Portrait_of_the_Artist_Holding_a_Thistle">Artist Holding a Thistle</a></p>
+              <div class="button-container">
+                <button>View</button>
+                <button>Wish</button>
+                <button>Cart</button>
+              </div>
+            </dd>
+          </div>
+
+          <!-- Second Picture -->
+          <div class="picture">
+            <dd>
+              <img src="images/thumbs/120010.jpg" alt="Portrait of Eleanor of Toledo">
+              <p><a class="hyperlink" href="https://en.wikipedia.org/wiki/Portrait_of_Eleanor_of_Toledo">Portrait of Eleanor of Toledo</a></p>
+              <div class="button-container">
+                <button>View</button>
+                <button>Wish</button>
+                <button>Cart</button>
+              </div>
+            </dd>
+          </div>
+
+          <div class="picture">
+            <dd>
+              <img src="images/thumbs/107010.jpg" alt="Madame de Pompadour">
+              <p><a class="hyperlink" href="https://en.wikipedia.org/wiki/Madame_de_Pompadour#/media/File:Madame_de_Pompadour.jpg">Madame de Pompadour</a></p>
+              <div class="button-container">
+                <button>View</button>
+                <button>Wish</button>
+                <button>Cart</button>
+              </div>
+            </dd>
+          </div>
+
+          <div class="picture">
+            <dt></dt>
+            <dd>
+              <img src="images/thumbs/106020.jpg" alt="Girl with a Pearl Earring">
+              <p><a class="hyperlink" href="https://en.wikipedia.org/wiki/Girl_with_a_Pearl_Earring">Girl with a Pearl Earring</a></p>
+              <div class="button-container">
+                <button>View</button>
+                <button>Wish</button>
+                <button>Cart</button>
+              </div>
+
+            </dd>
+          </div>
+
+        </div>
       </div>
     </section>
-    <section id="about"> 
-      <div class="container">
-        <h2>About us</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur tenetur facere maiores vel id quos, nisi veniam dolorum? Perspiciatis accusantium laboriosam laudantium earum ex nobis aperiam debitis. Adipisci, deleniti reprehenderit error debitis vitae consectetur, officia alias consequatur aliquid doloremque eveniet, animi qui? Optio obcaecati assumenda asperiores quis cum accusantium sint!</p>
-        <p>Doloribus odio nihil ipsam, provident ducimus libero eveniet cum molestiae accusantium laborum sunt voluptatum. Praesentium debitis nihil iure nobis corrupti, saepe adipisci voluptates quos doloribus, iusto dicta facere. Similique laborum maxime modi repellendus aliquam, natus voluptates deserunt ut itaque numquam nisi explicabo consequatur eligendi sed temporibus atque quisquam eaque illum.</p>
-      </div>
-    </section>
+
   </main>
+
   <footer>
     <div class="container">
-      <p><a href="mailto:email@coffee.uw.edu"><span class="material-icons">email</span> email@coffee.uw.edu</a></p>
-      <p><a href="tel:555-123-4567"><span class="material-icons">phone</span> 555-123-4567</a></p>
-      <p>&copy; Sharp point coffee 2021</p>
+      <!-- <p><a href="mailto:email@coffee.uw.edu"><span class="material-icons">email</span> email@coffee.uw.edu</a></p>
+      <p><a href="tel:555-123-4567"><span class="material-icons">phone</span> 555-123-4567</a></p> -->
+      <p>All images are copyright to their owners. This is just a hypothetical site. &copy; 2023 Copyright Art Store</p>
     </div>
   </footer>
 

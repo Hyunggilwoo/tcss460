@@ -1,0 +1,380 @@
+/* ----------- Body -----------------*/
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+body {
+  font: "Nunito Sans", sans-serif;
+  margin: 0;
+}
+
+body {
+  /* background: rgb(159,157,191);
+  background: linear-gradient(90deg, rgba(159,157,191,1) 0%, rgba(121,35,9,1) 24%, rgba(255,111,0,0.2665441176470589) 100%); */
+  background-image: url("images/stucco/stucco_@2X.png");
+}
+
+h1, h2 {
+  font: "Raleway", Helvetica, sans-serif;
+  font-weight: 300;
+
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  display: block;
+}
+
+/* ----------------- Top Navigation Bar ------------------*/
+.topNav {
+  top: 0;
+  width: 100%; 
+  /* max-width: 960px;  */
+  background-color: black;
+  z-index: 1;
+}
+
+.topNav ul {
+  display: flex;
+  justify-content: right;
+  list-style-type: none;
+  padding: 0;
+}
+
+.topNav ul li {
+  padding: 0;
+  display: inline;
+  margin: 0;
+  margin-block: 0;
+  margin-inline: 1rem;
+}
+
+.topNav ul li a {
+  color: darkgray;
+  text-decoration: none;
+}
+
+.topNav ul li a:hover, .topNav ul li a:focus {
+  color: white;
+  border-bottom: .8rem white;
+  transition: 0.25s ease-out;
+}
+
+/**----------------- Second Navigation Bar ------------------*/
+
+.homeView {
+  position: relative;
+
+  z-index: 2;
+}
+
+.secondNav {
+  top: 200px;
+  width: 270%; 
+  background-color: rgb(245, 246, 246);
+
+  padding: 0.5rem;
+  padding-left: 0rem;
+  padding-bottom: 0.25rem;
+}
+
+.secondNav ul {
+  display: flex;
+  justify-content: left;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.secondNav ul li {
+  padding: 0;
+  display: inline;
+  margin: 0;
+  margin-block: 0;
+  margin-inline: 1rem;
+}
+
+.secondNav ul li a {
+  color: rgb(44, 39, 39);
+  text-decoration: none;
+}
+
+.secondNav ul li a:hover, .secondNav ul li a:focus {
+  color: brown;
+  border-bottom: .8rem brown;
+  transition: 0.25s ease-out;
+}
+
+.nav_container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: rgb(245, 249, 252);
+}
+
+/* ------------------ Main Product Presentation ------------------*/
+.picture-view {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+/* ------------------ Similar Product List ------------------*/
+/* .product_container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: aliceblue;
+} */
+
+.product-list {
+  display: flex;
+
+  border-top: 1px solid rgb(199, 202, 205);
+}
+
+.picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid rgb(199, 202, 205);
+}
+
+.product-list > div {
+  margin-right: 20px;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px; /* Adjust the gap between buttons as needed */
+}
+
+.button-container button {
+  white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+/*------------------ Main Product Presentation ------------------*/
+.titleLink {
+  text-decoration: none;
+  color: black;
+}
+
+.titleLink:visited {
+  color: black;
+  text-decoration: underline;
+}
+
+.main-picture {
+  background: url("images/113010-m.jpg") 0px -0px;
+  width:400px;
+  height: 400px;
+  margin-left: 0;
+  margin-right: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ----------------- Price ------------------*/
+.price {
+  /* font-size: 1.5rem; */
+  font-weight: bold;
+  text-decoration: none;
+  color: red;
+}
+
+/* ----------------- Ordering Buttons ------------------*/
+.ordering-buttons {
+  display: flex;
+  justify-content: space-between;
+  /* grid-template-columns: 1fr 1fr; */
+  padding: 0.5rem;
+}
+
+.ordering-buttons button {
+  font-weight: bold;
+  flex: 1;
+  margin: 0.5rem;
+}
+
+
+.ordering-buttons button a {
+  text-decoration: none;
+  color: blue;
+}
+
+/*---------------------- Product Details ------------------------ */
+.product-details {
+  text-align: left;
+}
+
+.hyperlink {
+  text-decoration: none;
+  color: blue;
+}
+
+.hyperlink:visited {
+  color: blue;
+  text-decoration: underline;
+}
+
+/* ------------------------ Footer  ----------------------- */
+footer .container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: black;
+  width: 150%; 
+  color: darkgray;
+  /* text-align: center; */
+}
+
+/* ------------------------ Customer Registration -------------------- */
+
+
+/* ------------------------ User Info section ---------------------------*/
+
+.user_info {
+  display: grid;
+}
+
+.name, .password  {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+}
+
+.name td, .password td {
+  padding-right: 90px;  /* Adjust the value as needed */
+}
+
+.email, .address {
+  grid-template-columns: 1fr 1fr;
+}
+
+.email input#emailInput {
+  width: 250%;
+}
+
+.address input#addressInput {
+  width: 50%;
+}
+
+/* ------------------------ Location section --------------------------- */
+.city-state-zip {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 4fr;
+}
+
+.input-container #cityInput, .input-container #zipInput {
+  width: 50%
+}
+
+.number-country {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+}
+
+.continent {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ------------------------ Personal Detail ------------------------- */
+.personalDetails {
+
+}
+
+.birthday-favorite_Color {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+}
+
+.interest_in_art {
+
+}
+
+.input-container #artInterestInput {
+  width: 40%;
+}
+/*--------------------------- All Done -------------------------------*/
+.allDone {
+  
+}
+
+.invalid-feedback {
+  display: none;
+  color: red;
+}
+
+input:focus:invalid + .invalid-feedback {
+  display: block;
+}
+
+.btn {
+  display: inline-block;
+  position: relative;
+  padding-left: 40px; /* Adjust padding as needed */
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 10px; /* Adjust position as needed */
+  transform: translateY(-50%);
+  background-image: url("images/button_ok.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 24px; /* Adjust width as needed */
+  height: 24px; /* Adjust height as needed */
+}
+
+.button-text {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}

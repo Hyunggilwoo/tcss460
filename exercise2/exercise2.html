@@ -1,0 +1,135 @@
+<html>
+<head>
+<title>Chapter 10</title>
+<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/styles.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+</head>    
+<body class="tiled">
+<header>
+    <h1>Art Filters</h1>
+</header>
+<main>
+    <div id="sliderBox">
+        <form>
+           <label>Opacity: </label><p><input type="range" id="sliderOpacity" min="0" max="100" value="100" class="sliders" /> <span id="numOpacity">100</span>%</p>
+           <p><label>Saturation: </label><input type="range" id="sliderSaturation" min="1" max="300" value="100" class="sliders"/> <span id="numSaturation">100</span>%</p>
+           <p><label>Brightness: </label><input type="range" id="sliderBrightness" min="0" max="300" value="100" class="sliders" /> <span id="numBrightness">100</span>%</p>
+           <p><label>Hue Rotate: </label><input type="range" id="sliderHue" min="0" max="360" value="0" class="sliders" /> <span id="numHue">0</span>&deg</p>
+           <p><label>Grayscale: </label><input type="range" id="sliderGray" min="0" max="100" value="0" class="sliders"/> <span id="numGray">0</span>%</p>
+           <p><label>Blur: </label><input type="range" id="sliderBlur" min="0" max="10" value="0" class="sliders" /> <span id="numBlur">0</span>px</p>
+           <p><button id="resetFilters">Reset</button> </p>
+        </form>    
+    </div>
+    <figure id="imgManipulated">
+        <img src="images/medium/painting1.jpg" > 
+        <figcaption>
+            <em>Still Life with Flowers in a Glass Vase</em> <br>
+            Jan Davidsz. de Heem, 1650 - 1683
+        </figcaption>
+    </figure>   
+    <div id="thumbBox">
+        <div><img src="images/small/painting1.jpg"  alt="Still Life with Flowers in a Glass Vase" title="Jan Davidsz. de Heem, 1650 - 1683"/></div>
+        <div><img src="images/small/painting2.jpg"  alt="Portrait of Alida Christina Assink" title="Jan Adam Kruseman, 1833"/></div>
+        <div><img src="images/small/painting3.jpg"  alt="Self-portrait" title="Vincent van Gogh, 1887"/></div>
+        <div><img src="images/small/painting4.jpg"  alt="William II, Prince of Orange, and his Bride, Mary Stuart" title="Anthony van Dyck, 1641"/></div>
+        <div><img src="images/small/painting5.jpg"  alt="Milkmaid" title="Johannes Vermeer, c. 1660"/></div>
+    </div>
+</main>
+<script>
+
+    $(document).ready(function() {
+
+        // Change the image and caption
+        $('#thumbBox img').click(function() {
+            let clickedImage = $(this).attr('src');
+            let clickedAlternate = $(this).attr('alt');
+            let clickedTitle = $(this).attr('title');
+
+            // Change the picture 
+            let mediumSrc = clickedImage.replace('/small/', '/medium/');
+
+            $('#imgManipulated img').attr('src', mediumSrc);
+
+            // change the picture title and attribute
+            let figcaptionContent = '<em>' + clickedAlternate + '</em><br>' + clickedTitle
+            $('#imgManipulated figcaption').html(figcaptionContent);
+
+            console.log('image clicked');
+        });
+
+        // Set filters in the image
+        $('#sliderBox form input[type="range"]').on('input', function() {
+
+            let id = $(this).attr('id');
+
+            let value = $(this).attr('value');
+
+            let sliderValue = $(this).val();
+
+            let filterValue = (id === 'sliderHue') ? sliderValue : sliderValue / 100;
+
+            // set default type
+            let filterType = 'opacity';
+            let valueType = 'numOpacity';
+
+            switch (id) {
+                case 'sliderOpacity':
+
+                    filterType = 'opacity';
+                    valueType = 'numOpacity';
+                    break;
+                case 'sliderSaturation':
+                    filterType = 'saturate';
+                    valueType = 'numSaturation';
+                    break;
+                case 'sliderBrightness':
+                    filterType = 'brightness';
+                    valueType = 'numBrightness';
+                    break;
+                case 'sliderHue':
+                    filterType = 'hue-rotate';
+                    filterValue = sliderValue + 'deg'; 
+                    valueType = 'numHue';
+                    break;
+                case 'sliderGray':
+                    filterType = 'grayscale';
+                    valueType = 'numGray';
+                    break;
+                case 'sliderBlur':
+                    filterType = 'blur';
+                    filterValue = sliderValue + 'px'; 
+                    valueType = 'numBlur';
+                    break;
+            }
+            console.log(value);
+            console.log(id);
+            // change values in slider
+            $('#' + valueType).text(sliderValue);
+            // add filters to CSS
+            $('#imgManipulated img').css('filter', filterType + '(' + filterValue + ')',
+                '-webkit-filter', filterType + '(' + filterValue + ')');
+
+        });
+
+        // reset the setting on image
+        $('#resetFilters').click(function(e) {
+            e.preventDefault();
+            $('#imgManipulated img').css('filter', 'none');
+            // for loop 
+
+            $('#sliderOpacity').val(100);
+            $('#sliderSaturation').val(100);
+            $('#sliderBrightness').val(100);
+            $('#sliderHue').val(0);
+            $('#sliderGray').val(0);
+            $('#sliderBlur').val(0);
+        });
+    });
+
+</script>    
+</body>   
+</html>
