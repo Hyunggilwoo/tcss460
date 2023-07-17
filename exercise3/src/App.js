@@ -1,19 +1,22 @@
 import { useState, useEffect } from 'react'
 import Country from './components/Country'
 import Map from './components/Map.js'
-import axios from 'axios'
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api"
+import axios from 'axios'
+import Search from './components/Search'
+import Display from './components/Display'
 import './App.css';
 import './styles/globals.css'
 
 
 function App(props) {
+  // country used to fetch information on all possible countries
   const [country, setCountry] = useState([])
   const [showCountry, setShowCountry] = useState('')
   // const [showAll, setShowAll] = useState('')
-  const { countries } = props
+  const [countryDetail, setCountryDetail] = useState(null); // Country detail object
   const [gMap, setGMap] = useState()
-  const [filteredCountries, setFilteredCountries] = useState([])
+  const [filteredCountries, setFilteredCountries] = useState([]); // Country names : String
 
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -55,28 +58,43 @@ function App(props) {
     // Filter stuff
     const regex = new RegExp(event.target.value, 'i');
     const filtered = country.filter(name => regex.test(name));
+    // set filtered countries
     setFilteredCountries(filtered)
+
+    // Fetch country detail if only one country is found
+    if (filtered.length === 1) {
+      fetchCountryDetail(filtered[0])
+    }
   }
 
-  // const searchCountry = (event) => {
-  //   event.preventDefault();
-  //   const regex = new RegExp(showCountry, 'i');
-  //   const filtered = country.filter(name => regex.test(name));
-  //   setFilteredCountries(filtered)
-  // }
+  // Pre: Only one country is passed into this method
+  const fetchCountryDetail = (countryName) => {
+    console.log('Fetching Country Detail', countryName)
+    console.log(typeof countryName)
 
-  // show filtered countries
+    const encodedCountryName = encodeURIComponent(countryName)
+    axios
+      .get(`https://studies.cs.helsinki.fi/restcountries/api/name/${encodedCountryName}`)
+      .then(response => {
+        console.log('Promise Fulfilled')
+        const countryData = response.data[0];
 
-  const showAll = filteredCountries.length > 10
-  ? <div>
-      <p> Too many matches, please be more specific </p> 
-    </div>
-    
-  : filteredCountries.map((country, index )=>
-      <li key={index}>
-        {country}
-      </li>
-  )
+        // store the extracted info in a state
+        setFilteredCountries([countryData])
+      })
+      .catch(error => {
+        console.error('Error fetching country data', error);
+      });
+
+  }
+
+  useEffect(() => {
+    if (filteredCountries.length === 1) {
+      fetchCountryDetail(filteredCountries[0]);
+    }
+
+  }, [filteredCountries]);
+
 
   // Google Map functions
   const showMap = isLoaded
@@ -89,7 +107,7 @@ function App(props) {
       <h1> Your Country Lookup tool</h1>
 
       <div>
-        {showAll}
+        {showAll()}
       </div>
 
       <div>
@@ -103,6 +121,9 @@ function App(props) {
         {/* </form> */}
       </div>
 
+      <div>
+
+      </div>
       <div>
         <p> Show Countries in Map</p>
         {showMap}
