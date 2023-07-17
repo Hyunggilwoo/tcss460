@@ -55,38 +55,6 @@ function App(props) {
 
   console.log('render', country.length, 'country')
 
-  // const filteredCountries = searchCountry === ''
-  //   ? []
-  //   : Search(country, searchCountry)
-
-  // // Pre: Only one country is passed into this method
-  // const fetchCountryDetail = (countryName) => {
-  //   console.log('Fetching Country Detail', countryName)
-  //   console.log(typeof countryName)
-
-  //   const encodedCountryName = encodeURIComponent(countryName)
-  //   axios
-  //     .get(`https://studies.cs.helsinki.fi/restcountries/api/name/${encodedCountryName}`)
-  //     .then(response => {
-  //       console.log('Promise Fulfilled')
-  //       const countryData = response.data[0];
-
-  //       // store the extracted info in a state
-  //       setFilteredCountries([countryData])
-  //     })
-  //     .catch(error => {
-  //       console.error('Error fetching country data', error);
-  //     });
-
-  // }
-
-  // useEffect(() => {
-  //   if (filteredCountries.length === 1) {
-  //     fetchCountryDetail(filteredCountries[0]);
-  //   }
-
-  // }, [filteredCountries]);
-
 
   // Google Map functions
   const showMap = isLoaded
