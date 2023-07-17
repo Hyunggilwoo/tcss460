@@ -1,31 +1,26 @@
   // show filtered countries
+import React from 'react'
 import Country from './Country'
-const Display = () => {
-if ( filteredCountries.length > 10) {
-    return (
-    <div>
-        <p> Too many matches, please be more specific </p> 
-    </div>
-    )
-}
-
-if ( filteredCountries.length === 1) {
-    // const countryData = filteredCountries[0];
-    // if (countryData.name && typeof countryData.name === 'object') {
-    return <Country {...countryDetail} />;
-
-}
-return (
-    filteredCountries.map((country, index )=> {
+const Display = ({countries, setCountries}) => {
+    if ( countries.length > 10) {
         return (
-            <div>
-            <li key={index}> {country} </li>
-            </div>
+        <div>
+            <p> Too many matches, please be more specific </p> 
+        </div>
+        )
+    } else if ((countries.length > 1 && countries.length < 10) || countries.length === 0) {
+        return (
+            <ul>
+                {countries.map((country, index) =>
+                    <li key={index}> {country.name} </li>)}
+            </ul>
+
+        )
+    } else {
+        return (
+            <Country country={countries[0]}/>
         )
     }
-    )
-)
-
 }
 
 export default Display

@@ -1,17 +1,21 @@
-const Country = ({ name, capital, languages, flag }) => {
+const Country = ({country}) => {
     // const { name, capital, languages, flag } = countryData
 
-    const languagesList = languages ? Object.values(languages) : [];
+    // const languagesList = languages ? Object.values(languages) : [];
 
     return (
         <div>
-            <h3>{name ? name.common : 'No Country Selected'}</h3>
-            <p>Capital: {capital}</p>
+            <h3>{country.name}</h3>
+            <p>Capital: {country.capital}</p>
+            <p> Population: {country.population}</p>
             <p>Languages:</p>
-            <ul>
-                {languagesList.map((lang, index) => <li key={index}>{lang}</li>)}
-            </ul>
-            <p><img src={flag ? flag : ''} alt="Country Flag"/>{flag}</p>
+            <div>
+                <ul>
+                    {country.languages.map((lang) => <li key={lang.name}> {lang.name}</li>)}
+                </ul>
+
+            </div>
+            <img src={country.flag} alt="Country Flag"/>
         </div>
         
     )

@@ -1,5 +1,5 @@
 let Search = (countries, substring) => {
-    let filteredCountries = countries.filter(country => country.name.includes(substring) === true)
+    let filteredCountries = countries.filter(country => country.name.includes(substring))
     return filteredCountries
 }
 
