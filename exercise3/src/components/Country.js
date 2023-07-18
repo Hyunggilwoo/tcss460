@@ -1,21 +1,26 @@
+import Map from './Map'
+import { Link } from 'react-router-dom'
 const Country = ({country}) => {
     // const { name, capital, languages, flag } = countryData
 
     // const languagesList = languages ? Object.values(languages) : [];
-
+    // Map latVal={country.latlng[0]} lngVal={country.latlng[1]}
     return (
         <div>
-            <h3>{country.name}</h3>
+            <h3>{country.name.common}</h3>
             <p>Capital: {country.capital}</p>
             <p> Population: {country.population}</p>
             <p>Languages:</p>
             <div>
                 <ul>
-                    {country.languages.map((lang) => <li key={lang.name}> {lang.name}</li>)}
+                    {Object.values(country.languages).map((language, index) => <li key={index}> {language}</li>)}
                 </ul>
 
             </div>
-            <img src={country.flag} alt="Country Flag"/>
+            <img src={country.flags.png} alt="Country Flag"/>
+
+            <Link to={`/map/${country.latlng[0]}/${country.latlng[1]}`}>View on Map</Link>
+            {/* <Map latVal={country.latlng[0]} lngVal={country.latlng[1]}/> */}
         </div>
         
     )
