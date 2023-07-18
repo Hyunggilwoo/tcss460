@@ -12,6 +12,10 @@ function App() {
     <div>
       <Router>
         <div>
+          <h1> Your Country Lookup tool</h1>
+        </div>
+        <div>
+          
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">Navbar</a>
@@ -26,26 +30,10 @@ function App() {
                 <li className="nav-item">
                   <a className="nav-link" href="#">Map</a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">Pricing</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link disabled">Disabled</a>
-                </li>
               </ul>
             </div>
           </div>
         </nav>
-          {/* <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/">Map</Link>
-              </li>
-            </ul>
-          </nav> */}
           <Routes>
               <Route exact path="/" element={<Home/>} />
               <Route path="/map/:lat/:lng" element={<Map />} />

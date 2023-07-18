@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import Map from './Map.js'
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api"
 import axios from 'axios'
 import Filter from './Filter'
 import Display from './Display'
@@ -12,10 +10,6 @@ function Home() {
   const [country, setCountry] = useState([])
   const [allCountries, setAllCountries] = useState([])
   const [newFilter, setNewFilter] = useState(''); // Country names : String
-
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-  });
 
   /**
    * This function filters the list of countries based on user input and displays the filtered list and a map.
@@ -58,15 +52,11 @@ function Home() {
     }
   }
 
-  // Google Map functions
-//   const showMap = isLoaded
-//     ? <Map />
-//     : <div> Loading...</div>;
 
 
   return (
     <div>
-      <h1> Your Country Lookup tool</h1>
+
       <Filter value={newFilter} onChange={handleShowCountry} />
 
       <div>

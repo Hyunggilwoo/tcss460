@@ -1,10 +1,7 @@
 import Map from './Map'
 import { Link } from 'react-router-dom'
 const Country = ({country}) => {
-    // const { name, capital, languages, flag } = countryData
 
-    // const languagesList = languages ? Object.values(languages) : [];
-    // Map latVal={country.latlng[0]} lngVal={country.latlng[1]}
     return (
         <div>
             <h3>{country.name.common}</h3>
