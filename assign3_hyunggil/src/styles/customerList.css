@@ -1,0 +1,10 @@
+.custom-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-list li:before {
+    content: "\2022";
+    margin: 0.5em;
+}
